@@ -1,3 +1,16 @@
+import os, urllib.request
+
+if not os.path.exists("foods.db"):
+    urllib.request.urlretrieve(
+        "https://raw.githubusercontent.com/YOUR_GITHUB/NutriAI-BAX423/main/data/foods.db",
+        "foods.db"
+    )
+if not os.path.exists("bloom_filters.pkl"):
+    urllib.request.urlretrieve(
+        "https://raw.githubusercontent.com/YOUR_GITHUB/NutriAI-BAX423/main/data/bloom_filters.pkl",
+        "bloom_filters.pkl"
+    )
+
 import streamlit as st
 import sqlite3, json, random, time, pickle, os
 
