@@ -23,17 +23,6 @@ if os.path.exists("bloom_filters.pkl"):  # ← changed from /content/bloom_filte
     with open("bloom_filters.pkl", "rb") as bf:
         BLOOM = pickle.load(bf)
 
-import streamlit as st
-import sqlite3, json, random, time, pickle, os
-
-conn = sqlite3.connect("/content/foods.db")
-conn.row_factory = sqlite3.Row
-
-BLOOM = {}
-if os.path.exists("/content/bloom_filters.pkl"):
-    with open("/content/bloom_filters.pkl", "rb") as bf:
-        BLOOM = pickle.load(bf)
-
 def get_rda(sex, age):
     if sex == "male":
         if age <= 30:   return {"calories":2400,"protein_g":56,"carbs_g":130,"fat_g":78,"fiber_g":38,"iron_mg":8,"calcium_mg":1000,"sodium_mg":2300,"b12_mcg":2.4,"vitd_mcg":15,"zinc_mg":11}
