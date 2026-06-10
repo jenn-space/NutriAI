@@ -1,15 +1,27 @@
-import os, urllib.request
+import os, urllib.request, streamlit as st
+import sqlite3, json, random, time, pickle
 
+# download DB files if not present (for Streamlit Cloud)
 if not os.path.exists("foods.db"):
+    st.info("Loading database... please wait")
     urllib.request.urlretrieve(
-        "https://raw.githubusercontent.com/YOUR_GITHUB/NutriAI-BAX423/main/data/foods.db",
+        "https://github.com/jenn_space/NutriAI/raw/main/foods.db",
         "foods.db"
     )
+
 if not os.path.exists("bloom_filters.pkl"):
     urllib.request.urlretrieve(
-        "https://raw.githubusercontent.com/YOUR_GITHUB/NutriAI-BAX423/main/data/bloom_filters.pkl",
+        "https://github.com/jenn_space/NutriAI/raw/main/bloom_filters.pkl",
         "bloom_filters.pkl"
     )
+
+conn = sqlite3.connect("foods.db")  # ← changed from /content/foods.db
+conn.row_factory = sqlite3.Row
+
+BLOOM = {}
+if os.path.exists("bloom_filters.pkl"):  # ← changed from /content/bloom_filters.pkl
+    with open("bloom_filters.pkl", "rb") as bf:
+        BLOOM = pickle.load(bf)
 
 import streamlit as st
 import sqlite3, json, random, time, pickle, os
