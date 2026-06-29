@@ -83,20 +83,6 @@ brief.pdf              # 4-page technical brief
 prompts.md             # Key AI prompts used
 ```
 
----
-
-## How to Set Up GitHub Repository
-1. Go to https://github.com/new
-2. Name it `NutriAI-BAX423` — set to **Public**
-3. Click **Create repository**
-4. Upload these files from your `code/` folder:
-   - `app.py`
-   - `requirements.txt`
-   - `README.md`
-   - `prompts.md`
-5. Copy your repo URL and replace `YOUR_GITHUB` in the Live Demo section above
-
----
 
 ## Test Personas — All PASS
 | Persona | Diet | Condition | Allergy | Safe Foods | Time |
