@@ -1,7 +1,7 @@
 # NutriAI
 AI-powered diet planner
 
-
+https://appnutriai.streamlit.app/
 ---
 
 ## Live Demo
